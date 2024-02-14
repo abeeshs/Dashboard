@@ -27,8 +27,10 @@ function Login() {
    });
    // form on submit function
    const onSubmit = async (data) => {
+      console.log(process.env);
+      console.log(process.env.REACT_APP_BACKEND_API);
       try {
-         const response = await axios.post("http://localhost:5000/login", data);
+         const response = await axios.post(process.env.REACT_APP_BACKEND_API, data);
          console.log(response.data.token);
          console.log(response.data.status);
          if (response.data.status === "success") {
