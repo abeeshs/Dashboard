@@ -1,5 +1,5 @@
 import { Box, Button, TextField } from "@mui/material";
-import React, { useEffect} from "react";
+import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -27,10 +27,11 @@ function Login() {
    });
    // form on submit function
    const onSubmit = async (data) => {
-      console.log(process.env);
-      console.log(process.env.REACT_APP_BACKEND_API);
       try {
-         const response = await axios.post(process.env.REACT_APP_BACKEND_API, data);
+         const response = await axios.post(
+            `${process.env.REACT_APP_BACKEND_API}/login`,
+            data
+         );
          console.log(response.data.token);
          console.log(response.data.status);
          if (response.data.status === "success") {
