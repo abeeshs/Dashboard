@@ -34,7 +34,7 @@ function Register() {
    const onSubmit = async (data) => {
       try {
          const response = await axios.post(
-            `${process.env.BACKEND_API}/signup`,
+            `${process.env.REACT_APP_BACKEND_API}/signup`,
             data
          );
          console.log(response.data);
